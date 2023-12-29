@@ -57,8 +57,8 @@
     </div>   
 </template>
 <script setup>
-    import APlayer from "./components/vue-aplayer/APlayer.vue";
-    // import APlayer from "@worstone/vue-aplayer";
+    // import APlayer from "./components/vue-aplayer/APlayer.vue";
+    import APlayer from "@worstone/vue-aplayer";
     // import Hls from "hls.js";
     // import ColorThief from "color-thief";
     import { onMounted, ref } from "vue";
