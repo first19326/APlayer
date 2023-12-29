@@ -1,0 +1,53 @@
+{
+  "name": "@worstone/vue-aplayer",
+  "version": "1.0.2",
+  "author": "WorstOne",
+  "description": "Vue 3.x for APlayer.",
+  "keywords": [
+    "Vue",
+    "Vue 3.x",
+    "APlayer",
+    "Vue-APlayer",
+    "Component",
+    "Vue-Component"
+  ],
+  "type": "module",
+  "main": "./dist/vue-aplayer.cjs",
+  "module": "./dist/vue-aplayer.js",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:demo": "vite build --config vite.demo.config.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "smoothscroll": "^0.4.0",
+    "vue": "^3.3.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.6.0",
+    "@worstone/vue-aplayer": "^1.0.2",
+    "sass": "^1.69.5",
+    "terser": "^5.26.0",
+    "vite": "^5.0.10",
+    "vite-svg-loader": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/first19326/APlayer.git"
+  },
+  "homepage": "https://github.com/first19326/APlayer#readme",
+  "bugs": {
+    "url": "https://github.com/first19326/APlayer/issues"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "license": "MIT"
+}
