@@ -99,7 +99,6 @@ $aplayer-height-lrc: $aplayer-height + $lrc-height - 6;
             padding-right: 18px;
             max-width: 400px;
             z-index: 99;
-            background: #FFF;
             transition: all 0.3s ease;
         }
 
@@ -209,6 +208,7 @@ $aplayer-height-lrc: $aplayer-height + $lrc-height - 6;
 
     .aplayer-body {
         position: relative;
+        background: #FFF;
     }
 
     .aplayer-icon {
