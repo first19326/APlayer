@@ -20,7 +20,9 @@
         },
         methods: {
             showList () {
-                this.ol.scrollTop = this.aplayer.index * 33;
+                setTimeout(() => {
+                    this.ol.scrollTop = this.aplayer.index * 33;
+                }, 0);
             },
             switchList (index) {
                 if (index !== this.aplayer.index) {
