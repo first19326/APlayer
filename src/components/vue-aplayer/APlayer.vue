@@ -284,12 +284,12 @@
             },
             switchStyle () {
                 if (this.$refs.switch) {
-                this.$refs.switch.style.display = "none";
-                setTimeout(() => {
+                    this.$refs.switch.style.display = "none";
+                    setTimeout(() => {
                         if (this.$refs.switch) {
-                    this.$refs.switch.style.display = "block";
+                            this.$refs.switch.style.display = "block";
                         }
-                }, 100);
+                    }, 100);
                 }
             },
             loadedTime () {
