@@ -1,6 +1,6 @@
 {
   "name": "@worstone/vue-aplayer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "WorstOne",
   "description": "Vue 3.x for APlayer.",
   "keywords": [
@@ -28,11 +28,11 @@
   },
   "dependencies": {
     "smoothscroll": "^0.4.0",
-    "vue": "^3.4.0"
+    "vue": "^3.4.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.6.0",
-    "@worstone/vue-aplayer": "^1.0.3",
+    "@vitejs/plugin-vue": "^4.6.2",
+    "@worstone/vue-aplayer": "^1.0.4",
     "sass": "^1.69.6",
     "terser": "^5.26.0",
     "vite": "^5.0.10",
