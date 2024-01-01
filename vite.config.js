@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [vue(), viteSVGLoader()],
   build: {
     outDir: 'dist',
+    sourcemap: true,
     lib: {
       entry: resolve(__dirname, 'src/components/vue-aplayer/index.js'),
       name: 'APlayer',
