@@ -15,7 +15,7 @@
                     <span class="aplayer-title">{{ aplayer.audio[aplayer.index]?.name ? aplayer.audio[aplayer.index].name : "No Audio" }}</span>
                     <span class="aplayer-author">{{ aplayer.audio[aplayer.index]?.artist ? " - " + aplayer.audio[aplayer.index].artist : "" }}</span>
                 </div>
-                <Lyric v-if="aplayer.mode === 'normal'" v-show="aplayer.lyricShow" :aplayer="aplayer" :audioStatus="audioStatus" ref="lyric" />
+                <Lyric v-if="aplayer.mode === 'normal'" v-show="aplayer.lyricShow" :aplayer="aplayer" ref="lyric" />
                 <Controller :aplayer="aplayer" :audioStatus="audioStatus" :styleStatus="styleStatus" @playedTime="playedTime" @disableTimeUpdate="disableTimeUpdate" @toggle="toggle" @skipBack="skipBack" @skipForward="skipForward" @seek="seek" @mute="mute" @setLoop="setLoop" @setOrder="setOrder" @toggleList="toggleList" @toggleLrc="toggleLrc" @setVolume="setVolume" />
             </div>
             <div class="aplayer-notice" :style="{ opacity: notice.opacity }">{{ notice.text }}</div>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <List v-if="aplayer.mode === 'normal'" :aplayer="aplayer" @play="play" @toggle="toggle" @switchList="switchList" ref="list" />
-        <Lyric v-if="aplayer.mode === 'fixed'" v-show="aplayer.lyricShow" :aplayer="aplayer" :audioStatus="audioStatus" ref="lyric" />
+        <Lyric v-if="aplayer.mode === 'fixed'" v-show="aplayer.lyricShow" :aplayer="aplayer" ref="lyric" />
         <audio ref="audio"></audio>
     </div>
 </template>
@@ -154,6 +154,7 @@
                     volume: this.volume,
                     lyricType: this.lrcType,
                     lyricShow: this.lrcShow,
+                    lyricIndex: 0,
                     lyrics: [],
                     listFolded: this.listFolded,
                     listMaxHeight: this.listMaxHeight,
@@ -327,8 +328,15 @@
                 }
             },
             updateLyric () {
-                if (this.aplayer.mode !== "mini") {
-                    this.$refs.lyric.updateLyric();
+                let lyric = this.aplayer.lyrics[this.aplayer.index];
+                if (lyric) {
+                    for (let i = 0; i < lyric.length; i++) {
+                        const current = lyric[i];
+                        const next = lyric[i + 1];
+                        if (this.audioStatus.playedTime >= current[0] && (!next || this.audioStatus.playedTime < next[0])) {
+                            this.aplayer.lyricIndex = i;
+                        }
+                    }
                 }
             },
             // expose methods
@@ -587,6 +595,7 @@
                 this.aplayer.coverColor = [],
                 this.aplayer.lyrics = [],
                 this.aplayer.index = 0;
+                this.aplayer.lyricIndex = 0;
                 this.audioStatus.duration = 0;
                 this.audioStatus.loadedTime = 0;
                 this.audioStatus.playedTime = 0;
