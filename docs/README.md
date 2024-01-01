@@ -82,6 +82,7 @@ pnpm add @worstone/vue-aplayer
 | lrcShow       | 布尔      | true              | 歌词默认显示                                                 |
 | listFolded    | 布尔      | false             | 列表默认折叠                                                 |
 | listMaxHeight | 数值      | 250               | 列表最大高度                                                 |
+| noticeSwitch  | 布尔      | true              | 通知默认开启，关闭后仅在控制台打印通知内容                   |
 | storageName   | 字符串    | 'aplayer-setting' | 存储播放器设置的 localStorage key                            |
 
 例如：

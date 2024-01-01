@@ -82,6 +82,7 @@ If you want a better experience, refer to the following methods to use it.
 | lrcShow       | Boolean      | true              | indicate whether lrc should show at first                    |
 | listFolded    | Boolean      | false             | indicate whether list should folded at first                 |
 | listMaxHeight | Number       | 250               | list max height                                              |
+| noticeSwitch  | Boolean      | true              | notice is enabled by default, only the notice content is printed on the console when disabled |
 | storageName   | String       | 'aplayer-setting' | localStorage key that store player setting                   |
 
 For example:
