@@ -444,7 +444,7 @@
             setTheme (color, index = this.aplayer.index) {
                 if (color) {
                     if (this.aplayer.coverColor[index]) {
-                        this.aplayer.coverColor[index].theme = color;
+                        this.aplayer.coverColor[index] = color;
                     } else if (this.aplayer.audio[index]) {
                         this.aplayer.audio[index].theme = color
                     }
