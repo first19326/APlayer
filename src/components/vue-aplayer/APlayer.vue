@@ -283,10 +283,14 @@
                 }
             },
             switchStyle () {
+                if (this.$refs.switch) {
                 this.$refs.switch.style.display = "none";
                 setTimeout(() => {
+                        if (this.$refs.switch) {
                     this.$refs.switch.style.display = "block";
+                        }
                 }, 100);
+                }
             },
             loadedTime () {
                 return this.audioRef.buffered.length ? this.audioRef.buffered.end(this.audioRef.buffered.length - 1) : 0;
