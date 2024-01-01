@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!destroyComponent" class="aplayer" :class="{ 'aplayer-narrow': styleStatus.narrow, 'aplayer-fixed': aplayer.mode === 'fixed', 'aplayer-mini': (aplayer.mode === 'mini' || (aplayer.mode === 'fixed' && styleStatus.mini)), 'aplayer-loading': (audioStatus.playStatus && audioStatus.waitingStatus), 'aplayer-withlist': (aplayer.audio.length > 1), 'aplayer-withlrc': (aplayer.mode === 'normal' && aplayer.lyricShow), 'aplayer-mobile': styleStatus.isMobile }" ref="aplayer">
+    <div class="aplayer" v-if="!destroyComponent" :class="{ 'aplayer-narrow': styleStatus.narrow, 'aplayer-fixed': aplayer.mode === 'fixed', 'aplayer-mini': (aplayer.mode === 'mini' || (aplayer.mode === 'fixed' && styleStatus.mini)), 'aplayer-loading': (audioStatus.playStatus && audioStatus.waitingStatus), 'aplayer-withlist': (aplayer.audio.length > 1), 'aplayer-withlrc': (aplayer.mode === 'normal' && aplayer.lyricShow), 'aplayer-mobile': styleStatus.isMobile }" ref="aplayer">
         <List v-if="aplayer.mode === 'fixed'" :aplayer="aplayer" @play="play" @toggle="toggle" @switchList="switchList" ref="list" />
         <div class="aplayer-body" :style="{ width: `${aplayer.mode === 'fixed' ? 'calc(100% - 18px)' : '100%'}` }">
             <div class="aplayer-pic" :style="coverStyle" @click="toggle">
@@ -12,8 +12,8 @@
             </div>
             <div class="aplayer-info" ref="info">
                 <div class="aplayer-music">
-                    <span class="aplayer-title">{{ aplayer.audio[aplayer.index]?.name ? aplayer.audio[aplayer.index].name : "No Audio" }}</span>
-                    <span class="aplayer-author">{{ aplayer.audio[aplayer.index]?.artist ? " - " + aplayer.audio[aplayer.index].artist : "" }}</span>
+                    <span class="aplayer-title">{{ aplayer.audio[aplayer.index] ? aplayer.audio[aplayer.index].name : "No Audio" }}</span>
+                    <span class="aplayer-author">{{ aplayer.audio[aplayer.index] ? " - " + aplayer.audio[aplayer.index].artist : "" }}</span>
                 </div>
                 <Lyric v-if="aplayer.mode === 'normal'" v-show="aplayer.lyricShow" :aplayer="aplayer" ref="lyric" />
                 <Controller :aplayer="aplayer" :audioStatus="audioStatus" :styleStatus="styleStatus" @playedTime="playedTime" @disableTimeUpdate="disableTimeUpdate" @toggle="toggle" @skipBack="skipBack" @skipForward="skipForward" @seek="seek" @mute="mute" @setLoop="setLoop" @setOrder="setOrder" @toggleList="toggleList" @toggleLrc="toggleLrc" @setVolume="setVolume" />
@@ -593,10 +593,10 @@
                 this.$emit("listclear");
                 this.pause();
                 this.audioRef.src = "";
-                this.aplayer.audio = [],
-                this.aplayer.randomOrder = [],
-                this.aplayer.coverColor = [],
-                this.aplayer.lyrics = [],
+                this.aplayer.audio = [];
+                this.aplayer.randomOrder = [];
+                this.aplayer.coverColor = [];
+                this.aplayer.lyrics = [];
                 this.aplayer.index = 0;
                 this.aplayer.lyricIndex = 0;
                 this.audioStatus.duration = 0;
