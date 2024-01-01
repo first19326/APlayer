@@ -18,7 +18,7 @@
                 <Lyric v-if="aplayer.mode === 'normal'" v-show="aplayer.lyricShow" :aplayer="aplayer" ref="lyric" />
                 <Controller :aplayer="aplayer" :audioStatus="audioStatus" :styleStatus="styleStatus" @playedTime="playedTime" @disableTimeUpdate="disableTimeUpdate" @toggle="toggle" @skipBack="skipBack" @skipForward="skipForward" @seek="seek" @mute="mute" @setLoop="setLoop" @setOrder="setOrder" @toggleList="toggleList" @toggleLrc="toggleLrc" @setVolume="setVolume" />
             </div>
-            <div class="aplayer-notice" :style="{ opacity: notice.opacity }">{{ notice.text }}</div>
+            <div class="aplayer-notice" :style="{ opacity: aplayer.noticeOpacity }">{{ aplayer.noticeText }}</div>
             <div class="aplayer-miniswitcher" @click="styleStatus.mini = !styleStatus.mini">
                 <button class="aplayer-icon">
                     <Icon type="right"></Icon>
@@ -130,6 +130,10 @@
                 type: Number,
                 default: 250,
             },
+            noticeSwitch: {
+                type: Boolean,
+                default: true,
+            },
             storageName: {
                 type: String,
                 default: "aplayer-setting",
@@ -158,6 +162,9 @@
                     lyrics: [],
                     listFolded: this.listFolded,
                     listMaxHeight: this.listMaxHeight,
+                    noticeSwitch: this.noticeSwitch,
+                    noticeText: "",
+                    noticeOpacity: 0,
                     storageName: this.storageName,
                     storage: {},
                 },
@@ -168,10 +175,6 @@
                     playStatus: false,
                     waitingStatus: false,
                     disableTimeUpdate: false,
-                },
-                notice: {
-                    text: "",
-                    opacity: 0,
                 },
                 styleStatus: {
                     isMobile: /mobile/i.test(window.navigator.userAgent),
@@ -463,19 +466,19 @@
                 this.aplayer.order = order;
             },
             setNotice (text, time = 2000, opacity = 0.8) {
-                if (this.aplayer.mode === "mini" || (this.aplayer.mode === "fixed" && this.styleStatus.mini)) {
+                if (!this.aplayer.noticeSwitch || this.aplayer.mode === "mini" || (this.aplayer.mode === "fixed" && this.styleStatus.mini)) {
                     console.warn(text);
                     return ;
                 }
-                this.notice.text = text;
-                this.notice.opacity = opacity;
+                this.aplayer.noticeText = text;
+                this.aplayer.noticeOpacity = opacity;
                 if (this.noticeTimeout) {
                     clearTimeout(this.noticeTimeout);
                 }
                 this.$emit("noticeshow");
                 if (time) {
                     this.noticeTimeout = setTimeout(() => {
-                        this.notice.opacity = 0;
+                        this.aplayer.noticeOpacity = 0;
                         this.$emit("noticehide");
                     }, time);
                 }
