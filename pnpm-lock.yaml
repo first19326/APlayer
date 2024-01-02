@@ -17,8 +17,8 @@ devDependencies:
     specifier: ^4.6.2
     version: 4.6.2(vite@5.0.10)(vue@3.4.3)
   '@worstone/vue-aplayer':
-    specifier: ^1.0.4
-    version: 1.0.4
+    specifier: ^1.0.6
+    version: 1.0.6
   sass:
     specifier: ^1.69.6
     version: 1.69.6
@@ -489,8 +489,8 @@ packages:
   /@vue/shared@3.4.3:
     resolution: {integrity: sha512-rIwlkkP1n4uKrRzivAKPZIEkHiuwY5mmhMJ2nZKCBLz8lTUlE73rQh4n1OnnMurXt1vcUNyH4ZPfdh8QweTjpQ==}
 
-  /@worstone/vue-aplayer@1.0.4:
-    resolution: {integrity: sha512-74zJaAsuNa20TjmDI4cpsk38vmP3v+mW+uTj5AhGjikzIEkPmVcHg+cNrX8G6ar7m8I+p4li/VRF0Ufu6JPJ5w==}
+  /@worstone/vue-aplayer@1.0.6:
+    resolution: {integrity: sha512-si0ShhO9xuENpFQdpJqKEWy3NR1Lt0r+T88u/gwZVw3b15CUizhrWpn8QdM08Ele+7FFkegsd2YDyANYhGtR6A==}
     dependencies:
       smoothscroll: 0.4.0
       vue: 3.4.3
@@ -815,8 +815,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /svgo@3.1.0:
-    resolution: {integrity: sha512-R5SnNA89w1dYgNv570591F66v34b3eQShpIBcQtZtM5trJwm1VvxbIoMpRYY3ybTAutcKTLEmTsdnaknOHbiQA==}
+  /svgo@3.2.0:
+    resolution: {integrity: sha512-4PP6CMW/V7l/GmKRKzsLR8xxjdHTV4IMvhTnpuHwwBazSIlw5W/5SmPjN8Dwyt7lKbSJrRDgp4t9ph0HgChFBQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -856,7 +856,7 @@ packages:
     peerDependencies:
       vue: '>=3.2.13'
     dependencies:
-      svgo: 3.1.0
+      svgo: 3.2.0
       vue: 3.4.3
     dev: true
 
