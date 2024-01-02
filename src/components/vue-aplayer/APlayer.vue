@@ -391,6 +391,7 @@
             },
             play () {
                 this.switchStyle();
+                this.audioStatus.playStatus = true;
                 this.$nextTick(() => {
                     this.audioStatus.playStatus = true;
                     if (this.aplayer.mutex) {
@@ -632,11 +633,12 @@
             },
             error () {
                 if (this.aplayer.audio.length > 1) {
+                    let playStatus = this.audioStatus.playStatus;
                     this.setNotice("An audio error has occurred, player will skip forward in 2 seconds.");
                     this.skipForwardTimeout && clearTimeout(this.skipForwardTimeout);
                     this.skipForwardTimeout = setTimeout(() => {
                         this.skipForward();
-                        this.audioStatus.playStatus && this.play();
+                        playStatus && this.play();
                     }, 2000);
                 } else if (this.aplayer.audio.length === 1) {
                     this.setNotice("An audio error has occurred.");
