@@ -62,6 +62,33 @@
 </script>
 ```
 
+### VitePress
+
+通过使用 Vue 的服务器端渲染 (SSR) 功能，VitePress 能够在生产构建期间在 Node.js 中预渲染应用程序。这意味着主题组件中的所有自定义代码都 **需要考虑 SSR 兼容性** 。详情参见 [VitePress 文档 - SSR 兼容性](https://vitepress.dev/zh/guide/ssr-compat#clientonly)。
+
+因为 SSR 兼容性的原因，在 VitePress 中可以通过 `defineClientComponent` 方式使用。
+
+```vue
+<template>
+    <APlayerClientComp :audio="audio" ref="aplayer" />
+</template>
+<script setup>
+import { ref, onMounted } from 'vue'
+import { defineClientComponent } from 'vitepress'
+
+const APlayerClientComp = defineClientComponent(() => {
+    return import('@worstone/vue-aplayer')
+})
+
+const audio = ref([]);
+
+onMounted(() => {
+	// 加载歌曲信息并更新 audio
+	audio.value = [];
+});
+</script>
+```
+
 [Docs](./docs/README_EN.md)
 
 [中文文档](./docs/README.md)
