@@ -27,7 +27,7 @@
 	<APlayer :audio="audio" />
 </template>
 <script setup>
-    import { ref } from "vue";
+    import { ref, onMounted } from "vue";
 	import APlayer from "@worstone/vue-aplayer";
     const audio = ref([]);
 
@@ -47,7 +47,7 @@
 	<APlayer :audio="audio" ref="aplayer" />
 </template>
 <script setup>
-    import { ref } from "vue";
+    import { ref, onMounted } from "vue";
 	import APlayer from "@worstone/vue-aplayer";
     
     const aplayer = ref(null);
