@@ -18,11 +18,11 @@ pnpm add @worstone/vue-aplayer
 
 ```vue
 <template>
-	<APlayer :audio="audio" />
+    <APlayer :audio="audio" />
 </template>
 <script setup>
-    import { ref } from "vue";
-	import APlayer from "@worstone/vue-aplayer";
+    import { ref, onMounted } from "vue";
+    import APlayer from "@worstone/vue-aplayer";
     const audio = ref([]);
 
     onMounted(() => {
@@ -38,11 +38,11 @@ If you want a better experience, refer to the following methods to use it.
 
 ```vue
 <template>
-	<APlayer :audio="audio" ref="aplayer" />
+    <APlayer :audio="audio" ref="aplayer" />
 </template>
 <script setup>
-    import { ref } from "vue";
-	import APlayer from "@worstone/vue-aplayer";
+    import { ref, onMounted } from "vue";
+    import APlayer from "@worstone/vue-aplayer";
     
     const aplayer = ref(null);
     // set 2 or more audios data
@@ -89,10 +89,10 @@ For example:
 
 ```vue
 <template>
-	<APlayer :audio="audio" mode="normal" autoplay=false mutex=true preload="auto" theme="#FADFA3" autoSwitch=true loop="all" order="random" muted=false volume=0.7 :lrcType=1 lrcShow=true listFolded=false listMaxHeight=250 />
+    <APlayer :audio="audio" mode="normal" autoplay=false mutex=true preload="auto" theme="#FADFA3" autoSwitch=true loop="all" order="random" muted=false volume=0.7 :lrcType=1 lrcShow=true listFolded=false listMaxHeight=250 />
 </template>
 <script setup>
-	import { ref } from "vue";
+    import { ref } from "vue";
     
     const audio = ref([
         {
@@ -199,7 +199,7 @@ The first way, put LRC to a LRC file, LRC file will be loaded when this audio st
 
 ```vue
 <template>
-	<APlayer :audio="audio" :lrcType=1></APlayer>
+    <APlayer :audio="audio" :lrcType=1></APlayer>
 </template>
 <script setup>
     import { ref } from "vue";
@@ -222,7 +222,7 @@ The second way, put LRC to a JS string.
 
 ```vue
 <template>
-	<APlayer :audio="audio" :lrcType=2></APlayer>
+    <APlayer :audio="audio" :lrcType=2></APlayer>
 </template>
 <script setup>
     import { ref } from "vue";
