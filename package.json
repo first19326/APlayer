@@ -1,6 +1,6 @@
 {
   "name": "@worstone/vue-aplayer",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "WorstOne",
   "description": "Vue 3.x for APlayer.",
   "keywords": [
@@ -28,14 +28,14 @@
   },
   "dependencies": {
     "smoothscroll": "^0.4.0",
-    "vue": "^3.4.31"
+    "vue": "^3.4.35"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.6.2",
-    "@worstone/vue-aplayer": "^1.0.6",
-    "sass": "^1.77.6",
-    "terser": "^5.31.1",
-    "vite": "^5.3.3",
+    "@worstone/vue-aplayer": "^1.0.7",
+    "sass": "^1.77.8",
+    "terser": "^5.31.3",
+    "vite": "^5.3.5",
     "vite-svg-loader": "^5.1.0"
   },
   "repository": {
