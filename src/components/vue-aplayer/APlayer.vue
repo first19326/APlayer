@@ -456,18 +456,29 @@
                 }
             },
             setMode (mode = "normal") {
+                if (mode != "normal" && mode != "fixed" && mode != "mini") {
+                    return ;
+                }
                 this.aplayer.mode = mode;
 
                 // reset style status
-                this.resize();
+                setTimeout(() => {
+                    this.resize();
+                }, 0);
             },
             setLoop (loop) {
+                if (loop != "one" && loop != "all" && loop != "none") {
+                    return ;
+                }
                 if (this.aplayer.audio.length <= 1 && loop === "one") {
                     loop = "all";
                 }
                 this.aplayer.loop = loop;
             },
             setOrder (order) {
+                if (order != "list" && order != "random") {
+                    return ;
+                }
                 this.aplayer.order = order;
             },
             setNotice (text, time = 2000, opacity = 0.8) {
