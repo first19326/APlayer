@@ -23,6 +23,12 @@
             <span>当前模式</span><input type="text" v-model="mode" @focus="focus" @blur="blur" />
         </div>
         <div class="column">
+            <span>循环播放</span><input type="text" v-model="loop" @focus="focus" @blur="blur" />
+        </div>
+        <div class="column">
+            <span>循环顺序</span><input type="text" v-model="order" @focus="focus" @blur="blur" />
+        </div>
+        <div class="column">
             <span>通知内容</span><input type="text" v-model="notice" @focus="focus" @blur="blur" />
         </div>
         <div class="column">
@@ -40,6 +46,8 @@
         <div class="button" @click="setVolume"><span>设置音频音量</span></div>
         <div class="button" @click="setTheme"><span>设置主题颜色</span></div>
         <div class="button" @click="setMode"><span>设置播放器模式</span></div>
+        <div class="button" @click="setLoop"><span>设置循环播放</span></div>
+        <div class="button" @click="setOrder"><span>设置循环顺序</span></div>
         <div class="button" @click="setNotice"><span>显示通知</span></div>
         <div class="button" @click="aplayer.skipBack"><span>上一首音频</span></div>
         <div class="button" @click="aplayer.skipForward"><span>下一首音频</span></div>
@@ -71,6 +79,8 @@
     const volume = ref(0.7);
     const theme = ref('#41B883');
     const mode = ref('normal');
+    const loop = ref('all');
+    const order = ref('list');
     const notice = ref('This is a notice of aplayer.');
     // please use '"' for the standard JSON format
     const audios = ref('{"title": "念", "author": "薛之谦", "pic": "https://p1.music.126.net/QxtlFDWCaKICD00pGIlzNg==/109951168739117009.jpg", "url": "https://api-meting.imsyy.top/api?server=netease&type=url&id=2064033095", "lrc": "https://api-meting.imsyy.top/api?server=netease&type=lrc&id=2064033095"}');
@@ -116,6 +126,12 @@
     }
     const setMode = () => {
         aplayer.value.setMode(mode.value);
+    }
+    const setLoop = () => {
+        aplayer.value.setLoop(loop.value);
+    }
+    const setOrder = () => {
+        aplayer.value.setOrder(order.value);
     }
     const setNotice = () => {
         aplayer.value.setNotice(notice.value);
