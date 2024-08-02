@@ -24,11 +24,11 @@
 
 ```vue
 <template>
-	<APlayer :audio="audio" />
+    <APlayer :audio="audio" />
 </template>
 <script setup>
     import { ref, onMounted } from "vue";
-	import APlayer from "@worstone/vue-aplayer";
+    import APlayer from "@worstone/vue-aplayer";
     const audio = ref([]);
 
     onMounted(() => {
@@ -44,11 +44,11 @@
 
 ```vue
 <template>
-	<APlayer :audio="audio" ref="aplayer" />
+    <APlayer :audio="audio" ref="aplayer" />
 </template>
 <script setup>
     import { ref, onMounted } from "vue";
-	import APlayer from "@worstone/vue-aplayer";
+    import APlayer from "@worstone/vue-aplayer";
     
     const aplayer = ref(null);
     // 设置 2 个或 2 个以上的歌曲信息
@@ -83,8 +83,8 @@ const APlayerClientComp = defineClientComponent(() => {
 const audio = ref([]);
 
 onMounted(() => {
-	// 加载歌曲信息并更新 audio
-	audio.value = [];
+    // 加载歌曲信息并更新 audio
+    audio.value = [];
 });
 </script>
 ```
